@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="type == 'A'">A</div>
+        <div v-else-if="type == 'B'">B</div>
+        <div v-else-if="type == 'C'">C</div>
+        <div v-else>No es ninguna</div>
+
+
+        <template >
+            <h1 v-if="active">asd</h1>
+            <p v-show="active">asdsadsa</p>
+            <label for="adas">dassda</label>
+        </template>
+    
+    </div>
+
+    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+
+
+        Vue.createApp({
+            data() {
+                return {
+                    type: "<",
+                    active: false
+                }
+            },
+            methods: {
+                addPais() {
+                    this.paises.push({
+                        name: this.name,
+                        capital: this.capital
+                    });
+                    this.name = "",
+                        this.capital = ""
+                }
+            }
+        }).mount("#app");
+
+    </script>
+</body>
+
+</html>

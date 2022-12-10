@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Vue</title>
+    <style>
+        .text-black{
+            color: black;
+        }
+        .text-red{
+            color: red;
+        }
+        .text-green{
+            color: green;
+        }
+        .text-blue{
+            color: blue;
+        }
+        .mt-16{
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        
+        <button @click="color = 'red'">
+            Rojo
+        </button>    
+        <button @click="color = 'green'">
+            Verde
+        </button> 
+        <button @click="color = 'blue'">
+            Azul
+        </button> 
+
+        
+
+        <p :class="'text-' + color" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam reiciendis, minus repellat in nobis molestias similique vero earum a laudantium asperiores inventore illo assumenda officia pariatur deleniti, adipisci quos.</p>
+        
+        {{'text-' + color}}
+
+        <button>
+            <span v-if="active" @click="active = !active">Desactivar</span>
+            <span v-else @click="active = !active">Activar</span>
+        </button> 
+
+        <p :class="colorClassComputed" class="mt-16">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ipsa ducimus vel quia, debitis at ipsam dolor aspernatur ipsum dolorum iste similique, perspiciatis saepe corrupti velit, enim sit laudantium.</p>
+    </div>
+
+    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        
+
+        Vue.createApp({
+            data() {
+                return {
+                    color: "black",
+                    active: true
+                }
+            },
+            computed: {
+                colorClassComputed(){
+                    return this.active ? 'text-blue' : 'text-red'
+                }
+            },
+            methods: {
+            }
+        }).mount("#app");
+
+    </script>
+</body>
+
+</html>
