@@ -4,7 +4,12 @@ import BlogView from '../views/BlogView.vue'
 import PostView from '../views/PostView.vue'
 import UserPostView from '../views/UserPostView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
-
+import OrderView from '../views/OrderView.vue'
+import ProductView from '../views/ProductView.vue'
+import UsersView from '../views/UsersView.vue'
+import ProfileView from '../views/users/ProfileView.vue'
+import CoursesView from '../views/users/CoursesView.vue'
+import IndexView from '../views/users/IndexView.vue'
 const routes = [
   {
     path: '/',
@@ -33,6 +38,37 @@ const routes = [
     path: '/user/:user/post/:post',
     name: 'UserPost',
     component: UserPostView
+  },
+  {
+    path: '/compras/:orderId(\\d+)',
+    name: 'Order',
+    component: OrderView
+  },
+  {
+    path: '/compras/:productName',
+    name: 'Product',
+    component: ProductView
+  },
+  {
+    path: '/users/:userId(\\d+)?',
+    name: 'Users',
+    component: UsersView,
+    children:[
+      // users/:userId/profile
+      {
+        path: 'profile',
+        component: ProfileView,
+      },
+      // users/:userId/courses
+      {
+        path: 'courses',
+        component: CoursesView,
+      },
+      {
+        path: '',
+        component: IndexView,
+      }
+    ]
   },
   {
     path: '/:pathMatch(.*)',
