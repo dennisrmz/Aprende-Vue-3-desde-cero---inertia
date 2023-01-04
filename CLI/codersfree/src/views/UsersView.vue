@@ -10,9 +10,9 @@
     </div>
 
     <nav>
-        <router-link :to="'/users/' + $route.params.userId">Index</router-link> |
-        <router-link :to="'/users/' + $route.params.userId + '/profile'">Perfil</router-link> |
-        <router-link :to="'/users/' + $route.params.userId + '/courses'">Cursos</router-link> 
+        <router-link :to="{name: 'UserIndex', params: {userId: $route.params.userId }}">Index</router-link> |
+        <router-link :to="{name: 'UserProfile', params: {userId: $route.params.userId }}">Perfil</router-link> |
+        <router-link :to="{name: 'UserCourses', params: {userId: $route.params.userId }}">Cursos</router-link> 
       </nav>
       <router-view/>
 </template>

@@ -26,6 +26,10 @@ const routes = [
   },
   {
     path: '/blog',
+    redirect: {name: 'blog'}
+  },
+  {
+    path: '/post',
     name: 'blog',
     component: BlogView
   },
@@ -57,15 +61,18 @@ const routes = [
       // users/:userId/profile
       {
         path: 'profile',
+        name: 'UserProfile',
         component: ProfileView,
       },
       // users/:userId/courses
       {
         path: 'courses',
+        name: 'UserCourses',
         component: CoursesView,
       },
       {
         path: '',
+        name: 'UserIndex',
         component: IndexView,
       }
     ]
