@@ -24,6 +24,14 @@ export default createStore({
   },
   actions: {
 
+    changeNombre({commit}, nombre){
+      setTimeout(() =>{
+
+        console.log("Actualizado en la base de datos")
+        commit('changeNombre', nombre);
+        
+      }, 2000 );
+    }
   },
   modules: {
 

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from 'vuex';
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default {
     data(){
@@ -32,11 +32,17 @@ export default {
 
     },
     methods: {
-        ...mapMutations(['increment', 'decrement', 'changeNombre']),
+        // ...mapMutations(['increment', 'decrement', 'changeNombre']),
+        ...mapMutations(['increment', 'decrement']),
+
+        ...mapActions(['changeNombre']),
         changeNombreComponent(){
+            
             this.changeNombre(this.nombreComponent)
+
+            // this.changeNombre(this.nombreComponent)
             this.nombreComponent = ""
-        }
+        },
     }
 }
 </script>
