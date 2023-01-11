@@ -27,21 +27,37 @@ export default {
         }
     },
     computed: {
-        ...mapState(['nombre', 'apellido', 'count']),
-        ...mapGetters(['sizeApellido']),
+        ...mapState('user',['nombre', 'apellido', 'count']),
+        ...mapState('counter',['count']),
+        // ...mapState({
+        //     nombre: (state) => {
+        //         return state.user.nombre
+        //     }, 
+        //     apellido: (state) => {
+        //         return state.user.apellido
+        //     }, 
+        //     count: (state) => {
+        //         return state.counter.count
+        //     }
+        // }),
+        ...mapGetters('user', ['sizeApellido']),
 
     },
     methods: {
         // ...mapMutations(['increment', 'decrement', 'changeNombre']),
-        ...mapMutations(['increment', 'decrement']),
+        ...mapMutations('counter', ['increment', 'decrement']),
+        // ...mapMutations('user', ['changeNombre']),
 
-        ...mapActions(['changeNombre']),
+        ...mapActions('user',['changeNombre', 'confirmationChangeNombre']),
         changeNombreComponent(){
             
-            this.changeNombre(this.nombreComponent)
+            this.changeNombre(this.nombreComponent).then(() =>{
+                this.nombreComponent = ""
+
+            })
 
             // this.changeNombre(this.nombreComponent)
-            this.nombreComponent = ""
+            
         },
     }
 }
